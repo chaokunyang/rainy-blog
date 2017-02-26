@@ -1,0 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: chaokunyang
+  Date: 2017/2/11
+  Time: 22:36
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="log" uri="http://logging.apache.org/log4j/tld/log" %>
+<%@ taglib prefix="rainy" uri="http://elasticjee.com/jsp/tld/rainy" %>
+<%@ taglib prefix="template" tagdir="/WEB-INF/tags/template" %>

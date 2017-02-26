@@ -1,0 +1,33 @@
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':logger')
+    compile project(':service')
+    compile project(':monitor')
+    compile project(':security')
+    compile project(':fs')
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    providedCompile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
+    providedCompile 'javax.el:javax.el-api:3.0.0'
+    providedCompile 'javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.1'
+    compile('org.glassfish.web:javax.servlet.jsp.jstl:1.2.2') {
+        exclude group: 'javax.servlet:servlet-api'
+        exclude group: 'javax.servlet.jsp:jsp-api'
+        exclude group: 'javax.servlet.jsp.jstl:jstl-api'
+    }
+    runtime 'javax.servlet:jstl:1.1.2'
+}
+
+war {
+
+}
+
+jettyRun {
+    httpPort = 9090
+    contextPath = 'rainy'
+}

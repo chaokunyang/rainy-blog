@@ -1,0 +1,112 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+}
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+    width: auto;
+}
+
+/* CUSTOMIZE THE CAROUSEL 自定义轮播
+------------------------------------*/
+/* Carousel base class */
+.carousel {
+    height: 500px;
+    margin-bottom: 60px;
+}
+/* 让caption在图片之上 */
+.carousel-caption {
+    z-index: 10;
+}
+.carousel-caption-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.carousel .item {
+    height: 500px;
+    background-color: #777;
+}
+.carousel-inner .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 500px;
+}
+
+/* MARKETING CONTENT
+-------------------------------------------------- */
+/* Center align the text within the three columns below the carousel */
+.marketing .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.marketing h2 {
+    font-weight: normal;
+}
+.marketing .col-lg-4 p {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (min-width: 768px) {
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners
+     导航条没有紧贴页面浏览器视口，所以加个圆角*/
+    .navbar-wrapper .navbar {
+        border-radius: 4px;
+    }
+
+    /* Bump up size of carousel content. 改变轮播内容的大小 */
+    .carousel-caption p {
+        margin-bottom: 30px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+}
+

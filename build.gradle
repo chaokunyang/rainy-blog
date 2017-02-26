@@ -1,0 +1,41 @@
+allprojects {
+	apply plugin: 'idea'
+	apply plugin: 'eclipse'
+    group = 'com.chaokunyang'
+    version = '0.1.0'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8" // 避免gradle中文乱码
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    dependencies {
+        compile('org.apache.commons:commons-lang3:3.3.2')
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+    configurations.compile.resolutionStrategy {
+        failOnVersionConflict()
+        //cacheChangingModulesFor 0, 'seconds'
+    }
+
+    // 为所有子项目增加 providedCompile 依赖配置
+    configurations {
+        provided {
+            description = 'Classpath for providedCompile only in compile time, not runtime'
+            visible = false
+        }
+        providedTest.extendsFrom provided
+    }
+    sourceSets {
+        main {
+            compileClasspath += configurations.provided
+        }
+        test {
+            compileClasspath += configurations.providedTest
+        }
+    }
+}

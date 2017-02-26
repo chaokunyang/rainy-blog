@@ -1,0 +1,11 @@
+rootProject.name = 'rainy-blog'
+include 'model'
+include 'service'
+include 'repository'
+include 'security'
+include 'web'
+include 'logger'
+include 'monitor'
+include 'fs'
+include 'websocket'
+
