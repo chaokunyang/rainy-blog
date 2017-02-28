@@ -7,5 +7,5 @@ include 'web'
 include 'logger'
 include 'monitor'
 include 'fs'
-include 'websocket'
+include 'chat'
 

@@ -58,11 +58,12 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Action</a></li>
                                 <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
+                                <li><a href="/login">登录</a></li>
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
+                                <li><a href="/chat?action=list">聊天请求列表</a></li>
+                                <li><a href="/chat?action=new">新建聊天</a></li>
+                                <li><a href="/chat?action=join">加入聊天</a></li>
                             </ul>
                         </li>
                     </ul>

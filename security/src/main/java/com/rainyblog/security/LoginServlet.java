@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 
     static {
         userDatabase.put("rainy", "123456");
+        userDatabase.put("kiki", "123456");
     }
 
 

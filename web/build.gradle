@@ -21,6 +21,15 @@ dependencies {
         exclude group: 'javax.servlet.jsp.jstl:jstl-api'
     }
     runtime 'javax.servlet:jstl:1.1.2'
+
+    providedCompile "javax.websocket:javax.websocket-api:1.0"
+    compile "org.apache.commons:commons-lang3:3.3.2"
+    compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    compile ("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonVersion}") {
+        exclude group: 'com.fasterxml.jackson.core'
+    }
 }
 
 war {
