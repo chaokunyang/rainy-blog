@@ -108,10 +108,15 @@
                 };
 
                 server.onmessage = function(event) {
+                    // 使用文本消息要简单得多，这里仅做研究，才使用二进制消息
                     if(event.data instanceof ArrayBuffer) {
+                        /*
+                        * Although most common Unicode values can be represented with one 16-bit number (as expected early on during JavaScript standardization) and fromCharCode() can be used to return a single character for the most common values (i.e., UCS-2 values which are the subset of UTF-16 with the most common characters), in order to deal with ALL legal Unicode values (up to 21 bits), fromCharCode() alone is inadequate. Since the higher code point characters use two (lower value) "surrogate" numbers to form a single character, String.fromCodePoint() (part of the ES2015 standard) can be used to return such a pair and thus adequately represent these higher valued characters.
+                        * *****************************************/
                         var message = JSON.parse(String.fromCharCode.apply(
                             null, new Uint8Array(event.data)
                         ));
+                        /*******************************************/
                         objectMessage(message);
                         if(message.type == 'JOINED') {
                             otherJoined = true;
@@ -119,6 +124,8 @@
                                 infoMessage('您正在和h ' +
                                     message.user + '聊天.');
                         }
+
+
                     } else {
                         modalErrorBody.text('Unexpected data type [' +
                             typeof(event.data) + '].');
@@ -140,6 +147,9 @@
                             content: messageArea.get(0).value
                         };
                         try {
+                            /*
+                             * Although most common Unicode values can be represented with one 16-bit number (as expected early on during JavaScript standardization) and fromCharCode() can be used to return a single character for the most common values (i.e., UCS-2 values which are the subset of UTF-16 with the most common characters), in order to deal with ALL legal Unicode values (up to 21 bits), fromCharCode() alone is inadequate. Since the higher code point characters use two (lower value) "surrogate" numbers to form a single character, String.fromCodePoint() (part of the ES2015 standard) can be used to return such a pair and thus adequately represent these higher valued characters.
+                             * *****************************************/
                             var json = JSON.stringify(message);
                             var length = json.length;
                             var buffer = new ArrayBuffer(length);
@@ -147,6 +157,13 @@
                             for(var i = 0; i < length; i++) {
                                 array[i] = json.charCodeAt(i);
                             }
+
+                            /*// To base64 encode a Uint8Array:
+                            var u8 = new Uint8Array([65, 66, 67, 68]);
+                            var b64encoded = btoa(String.fromCharCode.apply(null, u8));
+                            // And to decode the base64 string back to a Uint8Array:
+                            var u8_2 = new Uint8Array(atob(b64encoded).split("").map(function(c) { return c.charCodeAt(0); }));*/
+                            /*******************************************/
                             server.send(buffer);
                             messageArea.get(0).value = '';
                         } catch(error) {

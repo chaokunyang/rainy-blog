@@ -14,6 +14,8 @@
         <a href="<c:url value="/home" >
             <c:param name="action" value="create" />
         </c:url>">创建博客</a><br/>
+        <a href="javascript:void 0;"
+           onclick="newChat();">和管理员聊天</a><br />
         <a href="<c:url value="/chat" >
             <c:param name="action" value="list" />>
         </c:url>">查看聊天请求</a><br/>

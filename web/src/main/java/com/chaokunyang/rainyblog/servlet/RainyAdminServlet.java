@@ -27,7 +27,7 @@ import java.io.IOException;
         maxFileSize = 20_971_520L, // 20MB
         maxRequestSize = 41_943_040L // 40MB
 )
-public class RainyAdmin extends HttpServlet {
+public class RainyAdminServlet extends HttpServlet {
     Logger logger = LogManager.getLogger();
 
     @Override

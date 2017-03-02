@@ -5,11 +5,6 @@
   Time: 23:27
   To change this template use File | Settings | File Templates.
 --%>
-<html>
-<head>
-    <title>后台管理</title>
-</head>
-<body>
+<template:basic htmlTitle="后台管理" bodyTitle="后台管理">
 
-</body>
-</html>
+</template:basic>

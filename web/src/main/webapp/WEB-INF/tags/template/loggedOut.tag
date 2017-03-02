@@ -1,3 +1,4 @@
+<%@tag pageEncoding="UTF-8"%> <%--防止中文乱码--%>
 <%@ tag body-content="scriptless" trimDirectiveWhitespaces="true" %>
 <%@ attribute name="htmlTitle" type="java.lang.String" rtexprvalue="true"
               required="true" %>

@@ -62,8 +62,8 @@
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>
                                 <li><a href="/chat?action=list">聊天请求列表</a></li>
-                                <li><a href="/chat?action=new">新建聊天</a></li>
-                                <li><a href="/chat?action=join">加入聊天</a></li>
+                                <li><a href="/chat?action=new" id="new-chat" onclick="newChat()">新建聊天</a></li>
+                                <li><a href="/chat?action=join" id="join">加入聊天</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -209,6 +209,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<c:url value="/resource/vendor/ie10-viewport-bug-workaround.js"/>"></script>
+<script src="<c:url value="/resource/js/home.js"/>"></script>
 </body>
 </html>
 
