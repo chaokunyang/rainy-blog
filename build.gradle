@@ -10,6 +10,9 @@ allprojects {
 }
 
 subprojects {
+    repositories {
+        mavenCentral()
+    }
     apply plugin: 'java'
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
