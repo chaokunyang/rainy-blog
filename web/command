@@ -1,4 +1,6 @@
-docker cp webapp/target/webapp.war caching_web_1:/opt/jboss/wildfly/standalone/deployments/webapp.war
-sed -i -e "s/IP/`docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' caching_web_1`/g" conf/nginx.conf
-docker cp conf/nginx.conf caching_lb_1:/etc/nginx/nginx.conf
-docker exec -it caching_lb_1 nginx -s reload
+  sed -i -e "s/IP/`docker inspect  --format='{{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' web_web_1`/g" conf/nginx.conf
+
+
+docker cp conf/nginx.conf web_lb_1:/etc/nginx/nginx.conf
+
+docker  exec -it web_lb_1 nginx -s reload

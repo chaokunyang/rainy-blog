@@ -17,6 +17,7 @@ docker cp build/libs/web-0.1.0.war caching_web_1:/opt/jboss/wildfly/standalone/d
 5、Copy the NGINX configuration file to the container: 
 
 docker cp conf/nginx.conf web_lb_1:/etc/nginx/nginx.conf
+
 使用命令查看配置是否正确 docker exec -it 容器ID bash
                      cat /etc/nginx/nginx.conf
 
