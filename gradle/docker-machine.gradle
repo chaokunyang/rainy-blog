@@ -9,6 +9,8 @@ buildscript {
 apply plugin: se.transmode.gradle.plugins.docker.DockerPlugin
 
 docker {
+    hostUrl 'https://192.168.99.100:2376' // set the URL used to contact the Docker server. Defaults to http://localhost:2375
+    dockerBinary 'F:\\Development\\DevEnvironment\\Docker Toolbox\\docker.exe'
     useApi false // Use the Docker Remote API instead of a locally installed docker binary.
 //    registry 'registry Url' // The hostname and port of the Docker image registry unless the Docker Hub Registry is used.
 }
