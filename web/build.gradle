@@ -40,3 +40,5 @@ jettyRun {
     httpPort = 9090
     contextPath = 'rainy'
 }
+
+apply from: "$rootDir/gradle/docker.gradle"

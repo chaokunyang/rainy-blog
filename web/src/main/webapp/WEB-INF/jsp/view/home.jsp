@@ -31,6 +31,22 @@
 
     <!-- Custom styles for this template -->
     <link href="<c:url value="/resource/stylesheet/vendor/carousel.css"/>" rel="stylesheet">
+    <script type="text/javascript">
+        var postInvisibleForm = function(url, fields) {
+            var form = $('<form id="mapForm" method="post"></form>').attr({action: url, style: 'display: none;'});
+            for(var key in fields) {
+                if(fields.hasOwnProperty(key))
+                    form.append($('<input type="hidden">').attr({
+                        name: key, value: fields[key]
+                    }));
+                $('body').append(form);
+                form.submit();
+            }
+        };
+        var newChat = function() {
+            postInvisibleForm('<c:url value="/chat" />', {action: 'new'});
+        };
+    </script>
 </head>
 <!-- NAVBAR
 ================================================== -->
@@ -62,7 +78,7 @@
                                 <li role="separator" class="divider"></li>
                                 <li class="dropdown-header">Nav header</li>
                                 <li><a href="/chat?action=list">聊天请求列表</a></li>
-                                <li><a href="/chat?action=new" id="new-chat" onclick="newChat()">新建聊天</a></li>
+                                <li><a href="javascript:void 0;" id="new-chat" onclick="newChat()">新建聊天</a></li>
                                 <li><a href="/chat?action=join" id="join">加入聊天</a></li>
                             </ul>
                         </li>
@@ -209,7 +225,6 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="<c:url value="/resource/vendor/ie10-viewport-bug-workaround.js"/>"></script>
-<script src="<c:url value="/resource/js/home.js"/>"></script>
 </body>
 </html>
 
