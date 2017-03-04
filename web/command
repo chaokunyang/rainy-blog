@@ -1,3 +1,5 @@
+  git clone https://github.com/chaokunyang/rainy-blog.git
+
   sed -i -e "s/IP/`docker inspect  --format='{{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' web_web_1`/g" conf/nginx.conf
 
 
