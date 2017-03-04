@@ -1,7 +1,7 @@
 version: "2"
 services:
   web:
-    image: jboss/wildfly
+    image: chaokunyang/rainy
   lb:
     image: chaokunyang/nginx-caching
     ports:
