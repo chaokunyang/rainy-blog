@@ -11,15 +11,18 @@ docker cp build/libs/web-0.1.0.war caching_web_1:/opt/jboss/wildfly/standalone/d
   
 4、Update the NGINX configuration file using the IP regular
   expression:       
-  sed -i -e "s/IP/`docker inspect  --format='{{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' caching_web_1`/g" conf/nginx.conf
+  sed -i -e "s/IP/`docker inspect  --format='{{range .NetworkSettings.Networks}} {{.IPAddress}}{{end}}' web_web_1`/g" conf/nginx.conf
+
 
 5、Copy the NGINX configuration file to the container: 
 
-docker cp conf/nginx.conf caching_lb_1:/etc/nginx/nginx.conf
+docker cp conf/nginx.conf web_lb_1:/etc/nginx/nginx.conf
+使用命令查看配置是否正确 docker exec -it 容器ID bash
+                     cat /etc/nginx/nginx.conf
 
 6、Reload the NGINX Docker container configuration with 
 
-docker  exec -it caching_lb_1 nginx -s reload
+docker  exec -it web_lb_1 nginx -s reload
 
 7、Use the command curl -I http://localhost:8080/webapp/index.html to get the response headers for index.html in the
   web application.
